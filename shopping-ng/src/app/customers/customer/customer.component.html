@@ -1,0 +1,52 @@
+<div class="container">
+    <router-outlet></router-outlet>
+    <br/>
+    <br/>
+    <a routerLink="/customers">View all Customers</a>
+</div>
+<div *ngIf="customer | async as customer">
+    <h2>{{customer.name}}</h2>
+    <div class="shop-card">
+        <div *ngIf = "customer.type === vipCustomer">
+            <span title = "VIP Customer"><i class="fas fa-grin-stars"></i></span>
+            <br>
+        </div>
+        Code: {{customer.code}}
+        <br/>
+        Location: {{customer.location}}
+        <br/>
+        Registration Date: {{customer.registrationDate}}
+        <br/>
+        Type: {{customer.type}}
+        <br/>
+    </div>
+    <div>
+        <h4>Orders</h4>
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <th *ngFor="let col of displayedColumns">
+                        {{col}}
+                    </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of customer.orders" >
+                        <td>            
+                            <a [routerLink]="['/customers', 'order', customer.code, order.id]">
+                                {{order.id}}
+                            </a>
+                        </td>
+                        <td>{{order.orderDate}}</td>
+                        <td>{{order.confirmDate}}</td>
+                        <td>{{order.completeDate}}</td>
+                        <td>{{order.product}}</td>
+                        <td>{{order.originalPrice | currency:'EUR':'symbol'}}</td>
+                        <td>{{order.finalPrice | currency:'EUR':'symbol'}}</td>
+                        <td>{{order.status}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

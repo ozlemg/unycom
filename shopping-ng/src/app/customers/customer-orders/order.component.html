@@ -1,0 +1,20 @@
+<button (click)="viewCustomers()">Customer</button>
+<div *ngIf="order | async as order">
+    <h2>Order - {{order.id}}</h2>
+    <div class="shop-card">
+        Order Date: {{order.orderDate}}
+        <br/>
+        Confirmation Date: {{order.confirmDate}}
+        <br/>
+        Completion Date: {{order.completeDate}}
+        <br/>
+        Product: {{order.product}}
+        <br/>
+        Original Price: {{order.originalPrice | currency:'EUR':'symbol'}}
+        <br/>
+        Final Price: {{order.finalPrice | currency:'EUR':'symbol'}}
+        <br/>
+        Status: {{order.status}}
+        <br/>
+    </div>
+</div>
