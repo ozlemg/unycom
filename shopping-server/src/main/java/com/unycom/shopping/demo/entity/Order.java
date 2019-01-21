@@ -29,8 +29,8 @@ public class Order {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", nullable = false, columnDefinition = "BIGINT(10)")
-	private Long id;
+	@Column(name = "id", nullable = false, columnDefinition = "INT(10)")
+	private Integer id;
 
 	@Column(name = "order_date")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -47,7 +47,7 @@ public class Order {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
 	private Date completeDate;
 
-	@Column(name = "product")
+	@Column(name = "product", length = 256)
 	private String product;
 
 	@Column(name = "price", columnDefinition = "NUMBER(10)")

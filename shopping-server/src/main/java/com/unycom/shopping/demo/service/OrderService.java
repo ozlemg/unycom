@@ -21,7 +21,7 @@ public class OrderService {
 		return orderRepository.findAll();
 	}
 
-	public Order findById(Long id) throws NotFoundException {
+	public Order findById(Integer id) throws NotFoundException {
 		return orderRepository.findById(id).orElseThrow(NotFoundException::new);
 	}
 }

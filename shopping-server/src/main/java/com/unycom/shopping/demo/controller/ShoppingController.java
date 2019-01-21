@@ -35,7 +35,7 @@ public class ShoppingController {
 	}
 
 	@RequestMapping("/orders/{order_id}")
-	public ResponseEntity<Order> getOrder(@PathVariable("order_id") Long orderId) {
+	public ResponseEntity<Order> getOrder(@PathVariable("order_id") Integer orderId) {
 		Order order;
 		try {
 			order = orderService.findById(orderId);

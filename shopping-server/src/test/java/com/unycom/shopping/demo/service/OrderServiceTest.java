@@ -18,6 +18,6 @@ public class OrderServiceTest {
 
 	@Test
 	public void canThrowExceptionOnGetOrder() {
-		assertThatThrownBy(() -> orderService.findById(398523L)).isInstanceOf(NotFoundException.class);
+		assertThatThrownBy(() -> orderService.findById(new Integer(398523))).isInstanceOf(NotFoundException.class);
 	}
 }

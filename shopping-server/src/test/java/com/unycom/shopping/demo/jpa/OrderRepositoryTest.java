@@ -32,14 +32,14 @@ public class OrderRepositoryTest {
 
 	@Test
 	public void canFindOrder() {
-		Optional<Order> order = orderRepository.findById(75603L);
+		Optional<Order> order = orderRepository.findById(new Integer(75603));
 		assertTrue(order.isPresent());
-		assertTrue(order.get().getId().equals(75603L));
+		assertTrue(new Integer(75603).equals(order.get().getId()));
 	}
 
 	@Test
 	public void canFindCustomerFromOrder() {
-		Optional<Order> order = orderRepository.findById(75603L);
+		Optional<Order> order = orderRepository.findById(new Integer(75603));
 		assertTrue(order.isPresent());
 		assertNotNull(order.get().getCustomer());
 		assertEquals("724282cab24a40d4", order.get().getCustomer().getCode());
@@ -47,67 +47,67 @@ public class OrderRepositoryTest {
 
 	@Test
 	public void canGetFinalPrice() {
-		Optional<Order> order = orderRepository.findById(30520765L);
+		Optional<Order> order = orderRepository.findById(new Integer(30520765));
 		assertNotNull(order.get().getFinalPrice());
 	}
 
 	@Test
 	public void canCalculateDiscountUnder1000() {
-		Optional<Order> order = orderRepository.findById(56055230L);
+		Optional<Order> order = orderRepository.findById(new Integer(56055230));
 		assertEquals(891.0, order.get().getFinalPrice(), 0.1);
 	}
 
 	@Test
 	public void canCalculateDiscountUnder1000Ceiling() {
-		Optional<Order> order = orderRepository.findById(230586L);
+		Optional<Order> order = orderRepository.findById(new Integer(230586));
 		assertNotEquals(990.0, order.get().getFinalPrice(), 0.1);
 	}
 
 	@Test
 	public void canCalculateDiscountUnder5000Floor() {
-		Optional<Order> order = orderRepository.findById(230586L);
+		Optional<Order> order = orderRepository.findById(new Integer(230586));
 		assertEquals(980.0, order.get().getFinalPrice(), 0.1);
 	}
 
 	@Test
 	public void canCalculateDiscountUnder5000() {
-		Optional<Order> order = orderRepository.findById(75603L);
+		Optional<Order> order = orderRepository.findById(new Integer(75603));
 		assertEquals(2940.0, order.get().getFinalPrice(), 0.1);
 	}
 
 	@Test
 	public void canCalculateDiscountUnder5000Ceiling() {
-		Optional<Order> order = orderRepository.findById(987560L);
+		Optional<Order> order = orderRepository.findById(new Integer(987560));
 		assertNotEquals(4900.0, order.get().getFinalPrice());
 	}
 
 	@Test
 	public void canCalculateDiscountUnder20000Floor() {
-		Optional<Order> order = orderRepository.findById(987560L);
+		Optional<Order> order = orderRepository.findById(new Integer(987560));
 		assertEquals(4750.0, order.get().getFinalPrice(), 0.1);
 	}
 
 	@Test
 	public void canCalculateDiscountUnder20000() {
-		Optional<Order> order = orderRepository.findById(867605L);
+		Optional<Order> order = orderRepository.findById(new Integer(867605));
 		assertEquals(8550.0, order.get().getFinalPrice(), 0.1);
 	}
 
 	@Test
 	public void canCalculateDiscountUnder20000Ceiling() {
-		Optional<Order> order = orderRepository.findById(12302157L);
+		Optional<Order> order = orderRepository.findById(new Integer(12302157));
 		assertNotEquals(19000.0, order.get().getFinalPrice());
 	}
 
 	@Test
 	public void canCalculateDiscountMaxEquals20000Floor() {
-		Optional<Order> order = orderRepository.findById(12302157L);
+		Optional<Order> order = orderRepository.findById(new Integer(12302157));
 		assertEquals(18000.0, order.get().getFinalPrice(), 0.1);
 	}
 
 	@Test
 	public void canCalculateDiscountMaxEquals20000() {
-		Optional<Order> order = orderRepository.findById(2356765L);
+		Optional<Order> order = orderRepository.findById(new Integer(2356765));
 		assertEquals(90000.0, order.get().getFinalPrice(), 0.1);
 	}
 

@@ -29,7 +29,6 @@ export class OrderComponent implements OnInit {
   getSelectedOrder() {
     this.route.params.subscribe((params: Params) => {
       const id = params['id'];
-      this.logger.log("id: " + id);
       if (id) {
         this.order = this.shoppingService.getOrder(id);
       }

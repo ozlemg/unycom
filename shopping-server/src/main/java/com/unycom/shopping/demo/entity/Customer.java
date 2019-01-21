@@ -17,7 +17,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -34,10 +33,10 @@ public class Customer {
 	@Column(name = "code", length = 20)
 	private String code;
 
-	@Column(name = "name")
+	@Column(name = "name", length = 256)
 	private String name;
 
-	@Column(name = "location")
+	@Column(name = "location", length = 256)
 	private String location;
 
 	@Column(name = "registration_date")
@@ -46,7 +45,6 @@ public class Customer {
 	private Date registrationDate;
 
 	@Column(name = "is_active")
-	@Type(type = "yes_no")
 	private boolean active;
 
 	@Enumerated(EnumType.ORDINAL)
