@@ -1,20 +1,22 @@
-<button (click)="viewCustomers()">Go back to customer</button>
-<div *ngIf="order | async as order">
-    <h2>Order - {{order.id}}</h2>
-    <div class="shop-card">
-        Order Date: {{order.orderDate}}
-        <br/>
-        Confirmation Date: {{order.confirmDate}}
-        <br/>
-        Completion Date: {{order.completeDate}}
-        <br/>
-        Product: {{order.product}}
-        <br/>
-        Original Price: {{order.originalPrice | currency:'EUR':'symbol'}}
-        <br/>
-        Final Price: {{order.finalPrice | currency:'EUR':'symbol'}}
-        <br/>
-        Status: {{order.status}}
-        <br/>
+<button (click)="viewCustomers()" class="btn btn-default btn-lg btn-block">Go back to customer</button>
+<div class="container-fluid">
+    <div *ngIf="order | async as order" class="card">
+        <h2 class="card-title">Order - {{order.id}}</h2>
+        <div class="card-body">
+            Order Date: {{order.orderDate}}
+            <br/>
+            Confirmation Date: {{order.confirmDate}}
+            <br/>
+            Completion Date: {{order.completeDate}}
+            <br/>
+            Product: {{order.product}}
+            <br/>
+            Original Price: {{order.originalPrice | currency:'EUR':'symbol'}}
+            <br/>
+            Final Price: {{order.finalPrice | currency:'EUR':'symbol'}}
+            <br/>
+            Status: {{order.status}}
+            <br/>
+        </div>
     </div>
 </div>

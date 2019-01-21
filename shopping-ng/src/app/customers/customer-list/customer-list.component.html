@@ -1,27 +1,29 @@
-<h2>Customers</h2>
+<div class="container-fluid">
+  <h2>Customers</h2>
 
-<div class="col-md-6">
-  <table class="table">
-      <thead>
-          <th *ngFor="let col of displayedColumns">
-              {{col}}
-          </th>
-      </thead>
-      <tbody>
-        <tr *ngFor="let customer of (customers | async)" >
-          <td>            
-            <a [routerLink]="['/customers', customer.code]">
-              {{customer.name}}
-            </a>
-          </td>
-          <td>{{customer.location}}</td>
-          <td>{{customer.registrationDate}}</td>
-          <td>{{customer.type}}</td> 
-          <td>
-            <span *ngIf="customer.active"><i class="far fa-check-square" ></i></span>
-          </td>
-        </tr>
-      </tbody>
-  </table>
+  <div class="col-md-6">
+    <table class="table">
+        <thead>
+            <th *ngFor="let col of displayedColumns">
+                {{col}}
+            </th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of (customers | async)" >
+            <td>            
+              <a [routerLink]="['/customers', customer.code]">
+                {{customer.name}}
+              </a>
+            </td>
+            <td>{{customer.location}}</td>
+            <td>{{customer.registrationDate}}</td>
+            <td>{{customer.type}}</td> 
+            <td>
+              <span *ngIf="customer.active"><i class="fa fa-check"></i></span>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
 </div>
 <router-outlet></router-outlet>

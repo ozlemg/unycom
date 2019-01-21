@@ -1,9 +1,2 @@
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-table { width: 100%; }
-td { text-align: center; }
-h2 { text-align: center; }
-h4 { text-align: center; }
-.shop-card {
-    margin: 30px;
-}
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";

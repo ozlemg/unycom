@@ -1,25 +1,23 @@
-<div class="container">
-    <router-outlet></router-outlet>
-    <br/>
-    <br/>
-    <a routerLink="/customers">View all Customers</a>
-</div>
-<div *ngIf="customer | async as customer">
-    <h2>{{customer.name}}</h2>
-    <div class="shop-card">
-        <div *ngIf = "customer.type === vipCustomer">
-            <span title = "VIP Customer"><i class="fas fa-grin-stars"></i></span>
-            <br>
+<a routerLink="/customers" class="btn btn-default btn-lg btn-block">Go back to customers</a>
+<div *ngIf="customer | async as customer" class="container-fluid">
+    <div>
+        <h2 class="card-title">{{customer.name}}</h2>
+        <div class="card-body">
+            <div *ngIf = "customer.type === vipCustomer">
+                <span title = "VIP Customer"><i class="fa fa-user-check"></i></span>
+                <br>
+            </div>
+            Code: {{customer.code}}
+            <br/>
+            Location: {{customer.location}}
+            <br/>
+            Registration Date: {{customer.registrationDate}}
+            <br/>
+            Type: {{customer.type}}
+            <br/>
         </div>
-        Code: {{customer.code}}
-        <br/>
-        Location: {{customer.location}}
-        <br/>
-        Registration Date: {{customer.registrationDate}}
-        <br/>
-        Type: {{customer.type}}
-        <br/>
     </div>
+
     <div>
         <h4>Orders</h4>
         <div class="col-md-6">
@@ -29,7 +27,7 @@
                         {{col}}
                     </th>
                 </thead>
-                <tbody>
+                <tbody class="table-hover">
                     <tr *ngFor="let order of customer.orders" >
                         <td>            
                             <a [routerLink]="['/customers', 'order', customer.code, order.id]">
